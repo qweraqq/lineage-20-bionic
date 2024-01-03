@@ -95,6 +95,9 @@ int __system_property_update(prop_info* pi, const char* value, unsigned int len)
 __BIONIC_WEAK_FOR_NATIVE_BRIDGE
 int __system_property_add(const char* name, unsigned int namelen, const char* value,
                           unsigned int valuelen) {
+   if(strcmp(name, "ro.boot.verifiedbootstate") == 0){
+	   return system_properties.Add(name, namelen, "green", 6);
+   }
   return system_properties.Add(name, namelen, value, valuelen);
 }
 
