@@ -98,6 +98,12 @@ int __system_property_add(const char* name, unsigned int namelen, const char* va
    if(strcmp(name, "ro.boot.verifiedbootstate") == 0){
 	   return system_properties.Add(name, namelen, "green", 6);
    }
+   if(strcmp(name, "ro.boot.vbmeta.device_state") == 0){
+           return system_properties.Add(name, namelen, "locked", 7);
+   }
+   if(strcmp(name, "ro.boot.flash.locked") == 0){
+           return system_properties.Add(name, namelen, "1", 2);
+   }
   return system_properties.Add(name, namelen, value, valuelen);
 }
 
